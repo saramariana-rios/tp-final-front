@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import ContactList from '../../ContactList/ContactList';
 import { getContactList } from '../../../services/contactService';
 
-
-
-
 const ContactScreen = () => {
     const contacts = getContactList()
     const [contactsState, setContactsState] = useState(contacts);
