@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import MessagesList from '../../MessagesList/MessagesList'
 import {NewMessageForm} from '../../NewMessageForm/NewMessageForm'
-import { useParams } from 'react-router'
+import { useParams, useNavigate } from 'react-router'
 import { getContactById, getContactList } from '../../../services/contactService'
 import ContactList from '../../ContactList/ContactList'
 import { useEffect } from 'react';
 
 
 const ChatScreen = () => {
-
+	const navigate = useNavigate();
 	
 	const {contact_id} = useParams()
 
@@ -22,6 +22,10 @@ useEffect(() => {
   const contact_selected = getContactById(contact_id);
   setMessages(contact_selected.messages);
 }, [contact_id]);
+
+	const handleBackClick = () => {
+		navigate('/');
+	};
     
 
 	const deleteMessageById = (message_id) => {
@@ -72,6 +76,13 @@ useEffect(() => {
 			</div>
 			<div className="chat-container">
 				<div className="chat-header">
+					<button 
+						className="back-button mobile-only"
+						onClick={handleBackClick}
+						aria-label="Volver a la lista de chats"
+					>
+						<i className="bi bi-arrow-left"></i>
+					</button>
 					<div className="chat-header-info">
 						<img 
 							src={contact_selected.avatar} 
