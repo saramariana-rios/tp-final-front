@@ -1,0 +1,413 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    text-decoration: none;
+}
+
+body {
+    background-color: #111b21;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#root {
+    width: 100%;
+    height: 100vh;
+    max-width: 1400px;
+    max-height: 100vh;
+    background-color: #111b21;
+    display: flex;
+    overflow: hidden; /* Evitar que el layout se rompa en transiciones */
+}
+
+/* WhatsApp Web Layout */
+.whatsapp-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: #111b21;
+}
+
+/* Sidebar - Lista de contactos */
+.contacts-sidebar {
+    width: 30%;
+    min-width: 320px;
+    background-color: #111b21;
+    border-right: 1px solid #313a43;
+    display: flex;
+    flex-direction: column;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.contacts-header {
+    background-color: #202c33;
+    padding: 16px;
+    border-bottom: 1px solid #313a43;
+}
+
+.contacts-header h1 {
+    color: #e9edef;
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.contacts-list {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Contact Item */
+.contact-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #313a43;
+    color: #e9edef;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.contact-item:hover {
+    background-color: #202c33;
+}
+
+.contact-avatar {
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+    background-color: #6b7c85;
+}
+
+.contact-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.contact-name {
+    font-size: 17px;
+    font-weight: 400;
+    color: #e9edef;
+    margin: 0 0 2px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.contact-description {
+    font-size: 14px;
+    color: #8696a0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.contact-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 8px;
+}
+
+.contact-time {
+    font-size: 12px;
+    color: #8696a0;
+    margin-bottom: 4px;
+}
+
+.contact-status {
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    background-color: #00a884;
+    color: white;
+}
+
+.contact-status.offline {
+    background-color: #667781;
+}
+
+/* Chat Area */
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #0b141a;
+    background-image: url("data:image/svg+xml,%3Csvg width='84' height='84' viewBox='0 0 84 84' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23182229' fill-opacity='0.15'%3E%3Cpath d='M84 23v-7a4 4 0 0 0-4-4h-7a4 4 0 0 0-4 4v7a4 4 0 0 0 4 4h7a4 4 0 0 0 4-4zm-16 0v-7a4 4 0 0 0-4-4h-7a4 4 0 0 0-4 4v7a4 4 0 0 0 4 4h7a4 4 0 0 0 4-4zm-16 0v-7a4 4 0 0 0-4-4h-7a4 4 0 0 0-4 4v7a4 4 0 0 0 4 4h7a4 4 0 0 0 4-4zm-16 0v-7a4 4 0 0 0-4-4h-7a4 4 0 0 0-4 4v7a4 4 0 0 0 4 4h7a4 4 0 0 0 4-4zm-16 0v-7a4 4 0 0 0-4-4h-7a4 4 0 0 0-4 4v7a4 4 0 0 0 4 4h7a4 4 0 0 0 4-4zm-16 0v-7a4 4 0 0 0-4-4H4a4 4 0 0 0-4 4v7a4 4 0 0 0 4 4h7a4 4 0 0 0 4-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.chat-header {
+    background-color: #202c33;
+    padding: 10px 16px;
+    border-bottom: 1px solid #313a43;
+    display: flex;
+    align-items: center;
+}
+
+.chat-header-info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.chat-header-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.chat-header-details h2 {
+    color: #e9edef;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.chat-header-details span {
+    color: #8696a0;
+    font-size: 13px;
+}
+
+/* Messages */
+.messages-container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    max-width: 65%;
+    margin-bottom: 12px;
+    padding: 6px 12px 8px 9px;
+    border-radius: 7.5px;
+    position: relative;
+    word-wrap: break-word;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.message.sent {
+    background-color: #005c4b;
+    color: #e9edef;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.message.received {
+    background-color: #202c33;
+    color: #e9edef;
+    align-self: flex-start;
+}
+
+.message-content {
+    margin-bottom: 4px;
+}
+
+.message-meta {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 11px;
+    color: #8696a0;
+    margin-top: 4px;
+}
+
+.message-time {
+    margin-right: 4px;
+}
+
+.message-status {
+    font-size: 16px;
+}
+
+/* Message Input */
+.message-input-container {
+    background-color: #202c33;
+    padding: 5px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.message-input {
+    flex: 1;
+    background-color: #2a3942;
+    border: none;
+    border-radius: 21px;
+    padding: 9px 12px;
+    color: #e9edef;
+    font-size: 15px;
+    outline: none;
+    resize: none;
+    max-height: 100px;
+    min-height: 20px;
+}
+
+.message-input::placeholder {
+    color: #8696a0;
+}
+
+.send-button {
+    background-color: #00a884;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.send-button:hover {
+    background-color: #06cf9c;
+}
+
+.send-button:disabled {
+    background-color: #667781;
+    cursor: not-allowed;
+}
+
+/* Welcome screen cuando no hay chat seleccionado */
+.welcome-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #222e35;
+    color: #8696a0;
+    text-align: center;
+    padding: 40px;
+}
+
+.welcome-screen h2 {
+    color: #e9edef;
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 16px;
+}
+
+.welcome-screen p {
+    font-size: 14px;
+    line-height: 20px;
+    max-width: 360px;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3b4a54;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #4a5a64;
+}
+
+/* -------------------------------------- */
+/* --- Media Queries para Responsive --- */
+/* -------------------------------------- */
+
+/* Pantallas pequeñas (320px - 768px) */
+@media (max-width: 768px) {
+    .whatsapp-container {
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    .contacts-sidebar {
+        width: 100%;
+        min-width: 100%;
+        border-right: none;
+        position: absolute;
+        left: 0;
+        z-index: 10;
+    }
+
+    .chat-container {
+        width: 100%;
+        position: absolute;
+        left: 100%;
+        height: 100%;
+        transition: left 0.3s ease-in-out;
+    }
+    
+    /* Esta clase debería ser añadida con JavaScript al contenedor principal
+       cuando se selecciona un chat para mostrar la ventana de chat */
+    .whatsapp-container.chat-active .contacts-sidebar {
+        margin-left: -100%;
+    }
+
+    .whatsapp-container.chat-active .chat-container {
+        left: 0;
+    }
+    
+    .message {
+        max-width: 80%; /* Un poco más de ancho para los mensajes */
+    }
+
+    .welcome-screen {
+        display: none; /* Ocultar la pantalla de bienvenida en móvil */
+    }
+}
+
+/* Pantallas medianas (769px - 1200px) */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .contacts-sidebar {
+        width: 35%; 
+        min-width: 340px;
+    }
+
+    .chat-container {
+        flex: 1;
+    }
+    
+    .welcome-screen h2 {
+        font-size: 28px;
+    }
+
+    .message {
+        max-width: 70%;
+    }
+}
+
+/* Pantallas grandes (1201px y más) */
+@media (min-width: 1201px) {
+    
+    .contacts-sidebar {
+        width: 30%;
+        min-width: 320px;
+    }
+
+    .chat-container {
+        flex: 1; 
+    }
+    
+    #root {
+        max-width: 1600px;
+    }
+}
