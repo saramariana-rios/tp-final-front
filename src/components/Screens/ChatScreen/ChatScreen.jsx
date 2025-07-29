@@ -49,7 +49,7 @@ useEffect(() => {
 		const new_mesage = {
 		
 			emisor: 'YO',
-			hora: hora , //Investigar acerca de Date.
+			hora: hora , 
 			texto: text,
 			status: 'no-visto',
 			id: messages.length + 1
@@ -108,6 +108,7 @@ useEffect(() => {
 
 				<div className="messages-container">
 					<MessagesList messages={messages} deleteMessageById={deleteMessageById} />
+					
 				</div>
 
 				<div className="message-input-container">

@@ -6,9 +6,7 @@ const NewMessageForm = ({addNewMessage}) => {
         event.preventDefault()
         let new_message_text = event.target.message.value
         if (new_message_text.trim()) {
-            //Llamos a la funcion de agregar nuevo mensaje
             addNewMessage(new_message_text)
-            //Reseteamos el campo
             event.target.message.value = ''
         }
     }

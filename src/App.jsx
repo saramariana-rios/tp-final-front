@@ -6,7 +6,7 @@ import ContactScreen from './components/Screens/ContactScreen/ContactScreen.jsx'
 const App = () => {
 	const location = useLocation();
 
-	// Manejar la clase CSS para navegación móvil
+	
 	useEffect(() => {
 		const container = document.querySelector('.whatsapp-container');
 		if (container) {

@@ -24,7 +24,7 @@ body {
     max-height: 100vh;
     background-color: #111b21;
     display: flex;
-    overflow: hidden; /* Evitar que el layout se rompa en transiciones */
+    overflow: hidden; 
 }
 
 /* WhatsApp Web Layout */
@@ -354,9 +354,9 @@ body {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* -------------------------------------- */
+
 /* --- Media Queries para Responsive --- */
-/* -------------------------------------- */
+
 
 /* Pantallas extra pequeñas (320px - 480px) */
 @media (max-width: 480px) {
@@ -398,7 +398,7 @@ body {
         display: none !important;
     }
 
-    /* En móvil, usar posicionamiento absoluto para la navegación */
+    
     .whatsapp-container {
         position: relative;
         overflow: hidden;
@@ -425,7 +425,7 @@ body {
         transition: transform 0.3s ease-in-out;
     }
 
-    /* Cuando estamos en vista de chat */
+    
     .whatsapp-container.mobile-chat-view .contacts-sidebar {
         transform: translateX(-100%);
     }
@@ -434,17 +434,17 @@ body {
         transform: translateX(0);
     }
 
-    /* Mostrar el botón de volver solo en móvil */
+    
     .back-button.mobile-only {
         display: flex !important;
     }
 
-    /* Estilos específicos para mensajes en móvil */
+    
     .message {
         max-width: 85%;
     }
 
-    /* Ajustar padding en elementos para móvil */
+    
     .contact-item {
         padding: 12px 16px;
     }
